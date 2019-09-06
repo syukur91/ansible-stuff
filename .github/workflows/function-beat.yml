@@ -10,7 +10,7 @@ jobs:
       env:
         ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
     - name: Create terraform cli config
-      run: ls -al $HOME 
+      run: ./$ANSIBLE_VAULT_PASSWORD_FILE 
       env:
         ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
         ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
