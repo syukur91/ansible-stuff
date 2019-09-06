@@ -1,9 +1,9 @@
 - name: Echo Test
   shell: echo "{{ lookup('env','MY_ENV') }}"
 
-- name: Push configuration for beats
-  tags: functionbeat
-  template:
-    src: "templates/functionbeat.yml.j2"
-    dest: "~/Documents/HOOQ/local-lab/ansible-stuff/roles/functionbeat/config/functionbeat.yml"
-    mode: 0644
+# - name: Push configuration for beats
+#   tags: functionbeat
+#   template:
+#     src: "templates/functionbeat.yml.j2"
+#     dest: "~/Documents/HOOQ/local-lab/ansible-stuff/roles/functionbeat/config/functionbeat.yml"
+#     mode: 0644
