@@ -9,13 +9,8 @@ jobs:
       run: printf '%s\n' '#!/bin/bash' 'echo $ANSIBLE_VAULT_PASSWORD' > $HOME/$ANSIBLE_VAULT_PASSWORD_FILE  && chmod +x $HOME/$ANSIBLE_VAULT_PASSWORD_FILE 
       env:
         ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
-    - name: Create terraform cli config
-      run: $HOME/$ANSIBLE_VAULT_PASSWORD_FILE 
+    - name: Run Playbook
+      run: ansible-playbook -vvv playbook.yml
       env:
         ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
         ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
-    # - name: Create terraform cli config
-    #   run: ansible-playbook -vvv playbook.yml
-    #   env:
-    #     ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
-    #     ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
