@@ -1,0 +1,9 @@
+--- # ansible-playbook playbook.yml -vv --vault-password-file ~/.vault_pass.txt --tags functionbeat(or)configroles(or)configindices
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+  tasks:
+    - name: Run functionbeat
+      tags: functionbeat
+      include_role:
+        name: functionbeat

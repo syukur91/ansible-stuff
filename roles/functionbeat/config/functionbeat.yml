@@ -1,0 +1,3 @@
+functionbeat.provider.aws.endpoint: "s3.amazonaws.com"
+functionbeat.provider.aws.deploy_bucket: "HELLO"
+cloud.id: "HOOQ-ELASTIC:this-is-my-pass-asdasdas-dasdas-dasda-sdasd-asda-sdasd-"

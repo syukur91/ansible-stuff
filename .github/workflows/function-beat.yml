@@ -1,0 +1,21 @@
+on: [push]
+jobs:
+ deploy-function-beat-play:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout public repo
+      uses: actions/checkout@master
+    - name: Create terraform cli config
+      run: printf '%s\n' '#!/bin/bash' 'echo $ANSIBLE_VAULT_PASSWORD' > $HOME/$ANSIBLE_VAULT_PASSWORD_FILE  && chmod +x $HOME/$ANSIBLE_VAULT_PASSWORD_FILE 
+      env:
+        ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
+    - name: Create terraform cli config
+      run: ls -al $HOME 
+      env:
+        ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
+        ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
+    # - name: Create terraform cli config
+    #   run: ansible-playbook -vvv playbook.yml
+    #   env:
+    #     ANSIBLE_VAULT_PASSWORD_FILE: ${{ secrets.ANSIBLE_VAULT_PASSWORD_FILE }}
+    #     ANSIBLE_VAULT_PASSWORD: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
