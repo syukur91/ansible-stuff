@@ -7,8 +7,10 @@ jobs:
       uses: actions/checkout@master
     - name: Create terraform cli config
       run: printf '%s\n' '#!/bin/bash' 'echo $ANSIBLE_VAULT_PASSWORD' > $HOME/vault_env  && chmod +x $HOME/vault_env
-    - name: Print Workspace and Home
-      run: echo $HOME && echo $WORKSPACE
+    - name: Print Home
+      run: echo $HOME 
+    - name: Print Workspace 
+      run: echo $WORKSPACE
     - name: Run Playbook
       run: ansible-playbook -vvv playbook.yml
       env:
