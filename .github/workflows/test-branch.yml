@@ -16,3 +16,7 @@ jobs:
         TF_TOKEN: ${{ secrets.TF_TOKEN_CLOUD_SRE }}
     - name: Checkout public repo
       uses: actions/checkout@master
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
