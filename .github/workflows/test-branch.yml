@@ -3,9 +3,9 @@ on:
  push:
   branches:
     - CS-*
-  paths:
-      # Set the location of specific folder and detect the changes under specified directory, if there's no any changes it will not trigger the workflow
-      - 'roles/functionbeat/config/*'
+  # paths:
+  #     # Set the location of specific folder and detect the changes under specified directory, if there's no any changes it will not trigger the workflow
+  #     - 'roles/functionbeat/config/*'
 jobs:
  deploy-function-beat-play:
     runs-on: ubuntu-latest
