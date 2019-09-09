@@ -1,4 +1,4 @@
-on: [push]
+on: [pull_request]
 jobs:
  deploy-function-beat-play:
     runs-on: ubuntu-latest
