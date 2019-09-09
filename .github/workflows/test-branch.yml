@@ -1,0 +1,18 @@
+name: test-branch
+on:
+ push:
+  branches:
+    - CS-*
+  paths:
+      # Set the location of specific folder and detect the changes under specified directory, if there's no any changes it will not trigger the workflow
+      - 'roles/functionbeat/config/*'
+jobs:
+ deploy-function-beat-play:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create terraform cli config
+      run: printf '%s\n' 'credentials "app.terraform.io" {' 'token = "my-token"' '}' > $HOME/.terraformrc   && sed -i -e "s/my-token/$TF_TOKEN/g" $HOME/.terraformrc
+      env:
+        TF_TOKEN: ${{ secrets.TF_TOKEN_CLOUD_SRE }}
+    - name: Checkout public repo
+      uses: actions/checkout@master
